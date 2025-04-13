@@ -4,6 +4,7 @@ import { Abel } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/providers/providers";
 import ClientLayout from "@/components/layout/ClientLayout";
+import PageTransition from "@/components/layout/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +39,9 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
-          <ClientLayout>{children}</ClientLayout>
+          <ClientLayout>
+            <PageTransition>{children}</PageTransition>
+          </ClientLayout>
         </Providers>
       </body>
     </html>

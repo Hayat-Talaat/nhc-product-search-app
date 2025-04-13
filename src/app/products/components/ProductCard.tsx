@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface ProductCardProps {
   product: Product;
@@ -14,7 +15,15 @@ function ProductCard({ product }: ProductCardProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="w-full max-w-xs border rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow ">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
+      className="w-full max-w-xs border rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow"
+    >
       <div className="relative h-40 w-full bg-gray-100">
         {isLoading && <Skeleton className="absolute inset-0 w-full h-full" />}
         <Image
@@ -46,7 +55,7 @@ function ProductCard({ product }: ProductCardProps) {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
