@@ -1,5 +1,5 @@
 "use client";
-import { useProduct } from "../hooks/useProduct";
+import { useProduct } from "../../hooks/useProduct";
 import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
